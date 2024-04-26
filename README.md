@@ -153,3 +153,5 @@ Big thanks to current and past contributors:
 * Stålheim, Anton (KiteAnton)
 
 And many many others who haven't been mentioned....
+
+AKK (SA FIX), Cam. Control, Dashboard, LED Strip, OSD(SD), OSD(HD), Pin IO, Servos, VTX

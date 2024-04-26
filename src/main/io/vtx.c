@@ -189,7 +189,8 @@ static bool vtxProcessPitMode(vtxDevice_t *vtxDevice)
     static bool prevPmSwitchState = false;
 
     unsigned vtxStatus;
-    if (!ARMING_FLAG(ARMED) && vtxCommonGetStatus(vtxDevice, &vtxStatus)) {
+    if (//!ARMING_FLAG(ARMED) && 
+vtxCommonGetStatus(vtxDevice, &vtxStatus)) {
         bool currPmSwitchState = IS_RC_MODE_ACTIVE(BOXVTXPITMODE);
 
         if (currPmSwitchState != prevPmSwitchState) {
@@ -275,12 +276,12 @@ void vtxUpdate(timeUs_t currentTimeUs)
                 default:
                     break;
             }
-            currentSchedule = (currentSchedule + 1) % VTX_PARAM_COUNT;
-        } while (!vtxUpdatePending && currentSchedule != startingSchedule);
+          currentSchedule = (currentSchedule + 1) % VTX_PARAM_COUNT;
+      } while (!vtxUpdatePending && currentSchedule != startingSchedule);
 
-        if (!ARMING_FLAG(ARMED) || vtxUpdatePending) {
+        // if (!ARMING_FLAG(ARMED) || vtxUpdatePending) {
             vtxCommonProcess(vtxDevice, currentTimeUs);
-        }
+        // }
     }
 }
 
